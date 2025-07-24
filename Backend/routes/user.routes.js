@@ -11,7 +11,7 @@ router.post('/register', [
    
 
 ],
-userController.registerUSer);
+userController.registerUser);
 
 router.post('/login', [
     body('email').isEmail().withMessage('Invalid Email'),
@@ -21,5 +21,7 @@ userController.loginUser
 )
 
 router.get('/profile',authMiddleware.authUser, userController.getUserProfile);
+
+router.get('/logout', authMiddleware.authUser, userController.logoutUser);
 
 module.exports = router;
